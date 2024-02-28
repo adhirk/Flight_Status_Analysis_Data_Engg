@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: staging
+    database: ark-terraform-demo
+    schema: flight_status_dataset
+
+    tables:
+      - name: flight_info
