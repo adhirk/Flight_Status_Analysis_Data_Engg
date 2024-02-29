@@ -7,3 +7,97 @@ sources:
 
     tables:
       - name: flight_info
+
+
+
+models:
+  - name: stg_flight_info
+    description: ""
+    columns:
+      - name: fl_date
+        data_type: string
+        description: ""
+        tests:
+          - not_null:
+              severity: warn
+          
+
+      - name: op_carrier
+        data_type: string
+        description: ""
+
+      - name: op_carrier_fl_num
+        data_type: int64
+        description: ""
+
+      - name: origin
+        data_type: string
+        description: ""
+
+      - name: dest
+        data_type: string
+        description: ""
+
+      - name: crs_dep_time
+        data_type: int64
+        description: ""
+
+      - name: dep_time
+        data_type: float64
+        description: ""
+
+      - name: dep_delay
+        data_type: float64
+        description: ""
+
+      - name: taxi_out
+        data_type: float64
+        description: ""
+
+      - name: wheels_off
+        data_type: float64
+        description: ""
+
+      - name: wheels_on
+        data_type: float64
+        description: ""
+
+      - name: taxi_in
+        data_type: float64
+        description: ""
+
+      - name: crs_arr_time
+        data_type: int64
+        description: ""
+
+      - name: arr_time
+        data_type: float64
+        description: ""
+
+      - name: arr_delay
+        data_type: float64
+        description: ""
+
+      - name: cancelled
+        data_type: float64
+        description: ""
+
+      - name: diverted
+        data_type: float64
+        description: ""
+
+      - name: crs_elapsed_time
+        data_type: float64
+        description: ""
+
+      - name: actual_elapsed_time
+        data_type: float64
+        description: ""
+
+      - name: air_time
+        data_type: float64
+        description: ""
+
+      - name: distance
+        data_type: float64
+        description: ""
