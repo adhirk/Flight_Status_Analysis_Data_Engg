@@ -5,7 +5,8 @@
 }}
 
 with flight_data as (
-    select Fl_date,
+    select 
+    Fl_date,
     op_carrier,
     op_carrier_fl_num,
     origin,
@@ -30,7 +31,8 @@ with flight_data as (
 ), 
 
 airline_info as (
-    select IATA_CODE as airline_IATA_code,
+    select 
+    IATA_CODE as airline_IATA_code,
     Airline_Name
     from {{ ref('airline') }}
 ),
@@ -61,6 +63,8 @@ destination_airport as (
 
 select 
 flight_data.Fl_date,
+EXTRACT(DAY FROM PARSE_DATE('%Y-%m-%d', flight_data.Fl_date)) AS Flight_day,
+EXTRACT(MONTH FROM PARSE_DATE('%Y-%m-%d', flight_data.Fl_date)) AS Flight_month,
 flight_data.Op_carrier,
 flight_data.Op_carrier_fl_num,
 flight_data.Origin,
@@ -83,20 +87,20 @@ flight_data.Air_time,
 flight_data.Distance,
 airline_info.Airline_IATA_code,
 airline_info.Airline_Name,
-origin_airport.origin_airport_IATA_code,
-origin_airport.origin_airport_name,
-origin_airport.origin_city,
-origin_airport.origin_state,
-origin_airport.origin_country,
-origin_airport.origin_latitude,
-origin_airport.origin_longitude,
-destination_airport.destination_airport_IATA_code,
-destination_airport.destination_airport_name,
-destination_airport.destination_city,
-destination_airport.destination_state,
-destination_airport.destination_country,
-destination_airport.destination_latitude,
-destination_airport.destination_longitude
+origin_airport.Origin_airport_IATA_code,
+origin_airport.Origin_airport_name,
+origin_airport.Origin_city,
+origin_airport.Origin_state,
+origin_airport.Origin_country,
+origin_airport.Origin_latitude,
+origin_airport.Origin_longitude,
+destination_airport.Destination_airport_IATA_code,
+destination_airport.Destination_airport_name,
+destination_airport.Destination_city,
+destination_airport.Destination_state,
+destination_airport.Destination_country,
+destination_airport.Destination_latitude,
+destination_airport.Destination_longitude
 
 from flight_data
 inner join airline_info 
