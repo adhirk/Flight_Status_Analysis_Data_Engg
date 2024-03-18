@@ -1,1 +1,3 @@
-# Flight_Status_Analysis_Data_Engg
+# Data Pipeline - Flow chart illustration
+
+![Alt Text](looker_dashboard/Pipeline-flowchart.png.jpg)
